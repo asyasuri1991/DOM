@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <span class="timer text-uppercase fs-1 fw-bold text-danger text-center"></span>
+</body>
+<script>
+    let end = new Date(2024, 0, 1);
+    function countdown() {
+        let now = new Date();
+        let str = "";
+        let days = Math.floor((end - now) / (1000 * 60 * 60 * 24));
+        let nowH = new Date();
+        let hours = 24 - now.getHours();
+        let minutes = 60 - now.getMinutes();
+        let seconds = 60 - now.getSeconds();
+        str = `До конца распродажи осталось ${days} дней ${hours} часов ${minutes} минут ${seconds} секунд`;
+        document.querySelector(".timer").innerHTML = str;
+    }
+    setInterval("countdown()", 1000);    
+</script>
+
+</html>
