@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+
+<body>
+
+    <table border=1>
+        <tr>
+            <td>Услуга</td>
+            <td>Цена за ед.</td>
+            <td>Количество</td>
+            <td>Итого за услугу</td>
+        </tr>
+        <tr>
+            <td>Черно-белая печать (лист)</td>
+            <td id="bwPrint">20</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum0"></td>
+        </tr>
+        <tr>
+            <td>Черно-белая копия (лист)</td>
+            <td id="bwCopy">15</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum1"></td>
+        </tr>
+        <tr>
+            <td>Цветная печать (лист)</td>
+            <td id="colorPrint">50</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum2"></td>
+        </tr>
+        <tr>
+            <td>Цветная копия (лист)</td>
+            <td id="colorCopy">40</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum3"></td>
+        </tr>
+        <tr>
+            <td>Фото 30х40</td>
+            <td id="photo3040">60</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum4"></td>
+        </tr>
+        <tr>
+            <td>Фото 50х60</td>
+            <td id="photo5060">100</td>
+            <td><input type="number" min=0 id="bwPrintQ"></td>
+            <td id="sum5"></td>
+        </tr>
+        <tr>
+            <td colspan="3">ИТОГО</td>
+            <td id="result"></td>
+        </tr>
+    </table>
+</body>
+<script>
+    function calc() {
+        let num1 = document.getElementById('bwPrint');
+        let num2 = document.getElementById('bwPrintQ');
+        let sum0 = document.getElementById('sum0');
+        sum0 = num1 * num2;
+        document.getElementById("sum0").innerHTML = `${sum0}`;
+
+    }
+</script>
+
+</html>
