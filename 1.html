@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карточки товаров</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container text-center">
+    <div class="row align-items-start">
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="timer text-uppercase fs-1 fw-bold text-danger text-center"></span>
+</body>
+<script>
+ let products = [
+        {
+            nameProduct: "Фитнес-браслет DEXP SB60",
+            imgSrc: "1.jpg",
+            body: "черный",
+            strap: "черный",
+            displaySize: "0.96\"",
+            displayType: "OLED",
+            bluetooth: true,
+            OS: {
+                os1: "Android 4.2",
+                os2: "IOS 8",
+            }
+        },
+        {
+            nameProduct: "Смарт-часы RunGo W2",
+            imgSrc: "2.jpg",
+            body: "зеленый",
+            strap: "зеленый",
+            displaySize: ".3\"",
+            displayType: "TFT (TN)",
+            bluetooth: true,
+            OS: {
+                os1: "Android",
+                os2: "IOS",
+            }
+        },
+        {
+            nameProduct: "Смарт-часы Welbe Prime",
+            imgSrc: "3.jpg",
+            body: "черный",
+            strap: "розовый",
+            displaySize: "1.69\"",
+            displayType: "IPS",
+            bluetooth: true,
+            OS: {
+                os1: "Android 5.0",
+                os2: "IOS 9",
+            }
+        }
+    ]
+</script>
+<script>
+  // import { products } from './products.js';
+let cards = Array.from(document.querySelectorAll(".card"));
+console.log(cards);
+cards.forEach(function (elem, index) {
+    elem.querySelector("img").src = `img/${products[index].imgSrc}`;
+    elem.querySelector("h5").innerHTML = `<br>${products[index].nameProduct}`;
+    let str = `<br>Корпус: ${products[index].body}
+    <br>Ремешок: ${products[index].strap}
+    <br>Размер дисплея: ${products[index].displaySize}
+    <br>Тип дисплея: ${products[index].displayType}`;
+    if (products[index].bluetooth) str += "<br>Блютуз: есть";
+    else str += "<br>Блютуз: нет";
+    str += `<br>Операционные системы: ${products[index].OS.os1}, ${products[index].OS.os2}`;
+    elem.querySelector(".card-text").innerHTML = str;
+
+});
+</script>
+
+</html>
