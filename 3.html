@@ -59,13 +59,32 @@
     </table>
 </body>
 <script>
-    function calc() {
-        let num1 = document.getElementById('bwPrint');
-        let num2 = document.getElementById('bwPrintQ');
-        let sum0 = document.getElementById('sum0');
-        sum0 = num1 * num2;
-        document.getElementById("sum0").innerHTML = `${sum0}`;
+    let price = {
+        bwPrint: 20,
+        bwCopy: 15,
+        colorPrint: 50,
+        colorCopy: 40,
+        photo3040: 60,
+        photo5060: 100
+    }
 
+    let elemsQ = document.querySelectorAll("input[type='number']");
+    let priceValues = Object.values(price);
+    let table = document.querySelector("table");
+    priceValues.forEach(function (elem, index) {
+        table.rows[index + 1].cells[1].innerHTML = elem;
+    })
+
+    elemsQ.forEach((elem, i) => {
+        elem.oninput = function () {
+            document.getElementById(`sum${i}`).innerHTML = priceValues[i] * elemsQ[i].value;
+            result();
+        }
+    })
+    function result() {
+        let sums = Array.from(document.querySelectorAll("[id*='sum']"));
+        summ = sums.reduce((sum, elem) => sum + +elem.innerHTML, 0);
+        document.querySelector("#result").innerHTML = summ;
     }
 </script>
 
